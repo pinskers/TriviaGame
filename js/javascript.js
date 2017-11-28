@@ -52,12 +52,24 @@ function timer (){
 }
 // Setting up a function for incorrect modal box
 function incorrectModal (){
-
+    var modal = $("incorrectModal"); // Get incorrectModal div
+    var span = document.getElementsByClassName("close")[0];  // When the user clicks on <span> (x), close the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }
 
 // Setting up a function for a correct modal box
 function correctModal (){
-
+    var modal = $("correctModal"); // Get correctModal div
+    var span = document.getElementsByClassName("close")[0];  // When the user clicks on <span> (x), close the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }
 
 // Setting up a function to reset the game
