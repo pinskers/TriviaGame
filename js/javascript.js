@@ -1,8 +1,55 @@
+
 // Initialize variables
+const cephaQuestions = [
+    {
+        question: "Cephalopod means what in Latin?",
+        answers: {
+            a: "foot-hand",
+            b: "hand-foot",
+            c: "head-foot",
+            d: "head-hand"
+        },
+        correctAnswer: "c"
+    },
+    {
+        question: "Over how many species of cephalopods are there?",
+        answers: {
+            a: "800",
+            b: "300",
+            c: "500",
+            d: "1000"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "What phlyum is the class Cephalopoda part of?",
+        answers: {
+            a: "Porifera",
+            b: "Coelenterata",
+            c: "Gastrotricha",
+            d: "Mollusca"
+        },
+        correctAnswer: "d"
+    }
+
+]
+
+var timeleft = 15; // Variable for how much time we want in the timer
+
+// Making the timer count down by one second
 
 // Upon document startup display timer, and question and corresponding answers in their
 // respective divs.
-
+$(document).ready(function() {
+    // Figure out how to make this a function so I can use it over and over
+    var countdownTimer = setInterval(function(){
+        timeleft--;
+        $("#seconds").text(timeleft);               
+        if(timeleft <= 0)
+            clearInterval(countdownTimer);
+        },1000);
+    });
+    
 // Start timer.
 
 // If user selects the correct answer, display screen that shows "Congratulations! You chose the 
