@@ -1,38 +1,34 @@
-
-// Creating an array of objects to store our questions, answers, and correct answers.
-var cephaQuestions = [
-    {
-        question: "Cephalopod means what in Latin?",
-        answers: {
-            a: "foot-hand",
-            b: "hand-foot",
-            c: "head-foot",
-            d: "head-hand"
-        },
-        correctAnswer: 2
-    },
-    {
-        question: "Over how many species of cephalopods are there?",
-        answers: {
-            a: "800",
-            b: "300",
-            c: "500",
-            d: "1000"
-        },
-        correctAnswer: 0
-    },
-    {
-        question: "What phlyum is the class Cephalopoda part of?",
-        answers: {
-            a: "Porifera",
-            b: "Coelenterata",
-            c: "Gastrotricha",
-            d: "Mollusca"
-        },
-        correctAnswer: 3
+// Setting up a function for incorrect modal box
+function incorrectModal (){
+    var modal = $("incorrectModal"); // Get incorrectModal div
+    var span = document.getElementsByClassName("close")[0];  // When the user clicks on <span> (x), close the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
+}
 
-]
+// Setting up a function for a correct modal box
+function correctModal (){
+    var modal = $("correctModal"); // Get correctModal div
+    var span = document.getElementsByClassName("close")[0];  // When the user clicks on <span> (x), close the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function timeupModal (){
+    var modal = $("timeupModal"); // Get timeupModal div
+    var span = document.getElementsByClassName("close")[0];  // When the user clicks on <span> (x), close the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
 
 // Variable for how much time we want in the timer per question
 var timeLeft = 5;
@@ -97,4 +93,3 @@ $(document).ready(function() {
 // shows correct to incorrect ratio with option to restart the game.
 
 // If user clicks restart, game restarts from the beginning.
-
