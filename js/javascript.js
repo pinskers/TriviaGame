@@ -33,26 +33,34 @@ var cephaQuestions = [
     }
 
 ]
-// Variables to store references to these elements
-var quizDiv = $("#quiz"); 
-var resultsDiv = $("#results");
 
-var timeleft = 15; // Variable for how much time we want in the timer per question
+// Variable for how much time we want in the timer per question
+var timeleft = 15;
 
-// Setting up a function to build our quiz
-function quizBuild (){
+// Variable to count our incorrect questions
+
+// Figure out how to make this a function so I can use it over and over
+function timer (){
+
+}
+// Setting up a function for incorrect modal box
+function incorrectModal (){
 
 }
 
-// Setting up a function to show our results
-function resultsBuild (){
-    
+// Setting up a function for a correct modal box
+function correctModal (){
+
 }
-// Setting up a function for a module box
+
+// Setting up a function to reset the game
+function reset (){
+
+}
+
 // Upon document startup display timer, and question and corresponding answers in their
 // respective divs.
 $(document).ready(function() {
-    // Figure out how to make this a function so I can use it over and over
     // Making the time count down by one second
     var countdownTimer = setInterval(function(){
         timeleft--;
@@ -61,17 +69,17 @@ $(document).ready(function() {
             clearInterval(countdownTimer);
         },1000);
     });
-
-
     
 // Start timer.
+    quizBuild ();
+    timer ();
 
 // If user selects the correct answer, display screen that shows "Congratulations! You chose the 
 // correct answer!"
 
 // After three seconds have passed, display next question and answer set.
 
-// If user selects the wrong answer, display screen that shows "Incorrect, the answer was [answer]."
+// If user selects the wrong answer, display screen that shows "Incorrect, the answer was [answer]." Add 1 to incorrect answers.
 
 // After three seconds have passed, display next question and answer set.
 
@@ -80,7 +88,7 @@ $(document).ready(function() {
 // After three seconds have passed, display next question and answer set.
 
 // Once user answers last question and last correct/incorrect screen has been shown, display screen that
-// shows correct and incorrect answers with option to restart the game.
+// shows correct to incorrect ratio with option to restart the game.
 
 // If user clicks restart, game restarts from the beginning.
 
