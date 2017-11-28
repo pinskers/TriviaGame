@@ -1,6 +1,6 @@
 
-// Initialize variables
-const cephaQuestions = [
+// Creating an object to store our questions, answers, and correct answers.
+var cephaQuestions = [
     {
         question: "Cephalopod means what in Latin?",
         answers: {
@@ -33,15 +33,27 @@ const cephaQuestions = [
     }
 
 ]
+// Variables to store references to these elements
+var quizDiv = $("#quiz"); 
+var resultsDiv = $("#results");
 
-var timeleft = 15; // Variable for how much time we want in the timer
+var timeleft = 15; // Variable for how much time we want in the timer per question
 
-// Making the timer count down by one second
+// Setting up a function to build our quiz
+function quizBuild (){
 
+}
+
+// Setting up a function to show our results
+function resultsBuild (){
+    
+}
+// Setting up a function for a module box
 // Upon document startup display timer, and question and corresponding answers in their
 // respective divs.
 $(document).ready(function() {
     // Figure out how to make this a function so I can use it over and over
+    // Making the time count down by one second
     var countdownTimer = setInterval(function(){
         timeleft--;
         $("#seconds").text(timeleft);               
@@ -49,6 +61,8 @@ $(document).ready(function() {
             clearInterval(countdownTimer);
         },1000);
     });
+
+
     
 // Start timer.
 
