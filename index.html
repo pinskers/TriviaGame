@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/reset.css">
+  <!--<link rel="stylesheet" href="css/reset.css">-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Scope+One|Open+Sans" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">  
@@ -24,8 +24,16 @@
             <p>
                 Time remaining: <span id="seconds">15</span> seconds
             </p>
-
-            <div class="col-md-12" id="quiz"></div>
+            <h2 id="question"></h2>
+            <div class="col-md-12" id="quiz">
+                <form>
+                    <p><input type="radio" name="answer"><span id="answer1"></span></p>
+                    <p><input type="radio" name="answer"><span id="answer2"></span></p>
+                    <p><input type="radio" name="answer"><span id="answer3"></span></p>
+                    <p><input type="radio" name="answer"><span id="answer4"></span></p>   
+                </form>
+            </div>
+            
             <div class="col-md-12" id="results"></div>
         </div>
     </div>

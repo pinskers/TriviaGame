@@ -1,5 +1,5 @@
 
-// Creating an object to store our questions, answers, and correct answers.
+// Creating an array of objects to store our questions, answers, and correct answers.
 var cephaQuestions = [
     {
         question: "Cephalopod means what in Latin?",
@@ -38,10 +38,17 @@ var cephaQuestions = [
 var timeleft = 15;
 
 // Variable to count our incorrect questions
+var incorrectQuestions;
 
-// Figure out how to make this a function so I can use it over and over
+// Setting up a function for a timer
 function timer (){
-
+    // Making the time count down by one second
+    var countdownTimer = setInterval(function(){
+        timeleft--;
+         $("#seconds").text(timeleft);               
+        if(timeleft <= 0)
+            clearInterval(countdownTimer);
+        },1000);  
 }
 // Setting up a function for incorrect modal box
 function incorrectModal (){
@@ -55,24 +62,22 @@ function correctModal (){
 
 // Setting up a function to reset the game
 function reset (){
-
+    console.log(cephaQuestions[0].question);
+    $("#question").text(cephaQuestions[0].question);
+    $("#answer1").text(cephaQuestions[0].answers.a);
+    $("#answer2").text(cephaQuestions[0].answers.b);
+    $("#answer3").text(cephaQuestions[0].answers.c);
+    $("#answer4").text(cephaQuestions[0].answers.d);
 }
 
 // Upon document startup display timer, and question and corresponding answers in their
 // respective divs.
 $(document).ready(function() {
-    // Making the time count down by one second
-    var countdownTimer = setInterval(function(){
-        timeleft--;
-        $("#seconds").text(timeleft);               
-        if(timeleft <= 0)
-            clearInterval(countdownTimer);
-        },1000);
+    reset ();
+    // Start timer.
+    timer ();
     });
     
-// Start timer.
-    quizBuild ();
-    timer ();
 
 // If user selects the correct answer, display screen that shows "Congratulations! You chose the 
 // correct answer!"
