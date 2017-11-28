@@ -72,6 +72,16 @@ function correctModal (){
     }
 }
 
+function timeupModal (){
+    var modal = $("timeupModal"); // Get timeupModal div
+    var span = document.getElementsByClassName("close")[0];  // When the user clicks on <span> (x), close the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
 // Setting up a function to reset the game
 function reset (){
     console.log(cephaQuestions[0].question);
@@ -101,7 +111,9 @@ $(document).ready(function() {
 // After three seconds have passed, display next question and answer set.
 
 // If timer reaches zero, display screen that shows "You ran out of time, the answer was [answer]."
-
+if (timeleft <= 0) {
+    timeupModal ();
+}
 // After three seconds have passed, display next question and answer set.
 
 // Once user answers last question and last correct/incorrect screen has been shown, display screen that
