@@ -36,7 +36,7 @@ var cephaQuestions = [
 ]
 
 // How much time we want in the timer per question
-var timeLeft = 15;
+var timeLeft = 3;
 var correctQuestions;
 var countdownTimer;
 
@@ -60,6 +60,18 @@ $(document).ready(function() {
     $("#q3a4").text(cephaQuestions[2].answers.d);
 
     // Checking if user click equals a correct answer for question 1
+    if (timeLeft <=0){ // This is pseudo code. Don't know why it's not working.
+        console.log("test");
+        timeUpDialog ();
+        $("#dialog-timeup").dialog("open");
+        $('.ok').on('click', function(){
+            $("#q1wrapper").hide();
+            $("#q2wrapper").show();
+            timeLeft=16;
+            $("#dialog-timeup").dialog("close");
+        });
+        
+    }else { // End pseudo code
     $("input[name=question1]").click(function() {
         var questionOneString = $("input[name=question1]:checked").next().text();
         if (questionOneString === cephaQuestions[0].correctAnswer){
@@ -86,8 +98,21 @@ $(document).ready(function() {
 
         }
     });
+}   
 
     // Checking if user click equals a correct answer for question 2
+     if (timeLeft <=0){ // This is pseudo code. Don't know why it's not working.
+        console.log("test");
+        timeUpDialog ();
+        $("#dialog-timeup").dialog("open");
+        $('.ok').on('click', function(){
+            $("#q2wrapper").hide();
+            $("#q3wrapper").show();
+            timeLeft=16;
+            $("#dialog-timeup").dialog("close");
+        });
+        
+    }else { // End pseudo code
     $("input[name=question2]").click(function() {
         var questionOneString = $("input[name=question2]:checked").next().text();
         if (questionOneString === cephaQuestions[1].correctAnswer){
@@ -113,8 +138,22 @@ $(document).ready(function() {
             $(".actualanswer").text(cephaQuestions[1].correctAnswer);
         } 
     });
+}
 
     // Checking if user click equals a correct answer for question 3
+    if (timeLeft <=0){ // This is pseudo code. Don't know why it's not working.
+    console.log("test");
+    timeUpDialog ();
+    $("#dialog-timeup").dialog("open");
+    $('.ok').on('click', function(){
+        $("#correctnumber").text(correctQuestions);
+        $("#counter").show();
+        $("#reset").show();   
+        timeLeft=16;
+        $("#dialog-timeup").dialog("close");
+    });
+
+    }else { // End pseudo code    
     $("input[name=question3]").click(function() {
         var questionThreeString = $("input[name=question3]:checked").next().text();
         if (questionThreeString === cephaQuestions[2].correctAnswer){
@@ -140,7 +179,9 @@ $(document).ready(function() {
             $(".actualanswer").text(cephaQuestions[2].correctAnswer);
         }
     });
+}
 });
+
 
 
 // ----- FUNCTIONS ------
@@ -184,6 +225,7 @@ function hideDialog (){
     $("#dialog-timeup").hide();
 }
 
+// Dialog box functions
 function correctDialog() {
     $( "#dialog-correct" ).dialog({
       autoOpen: false,
@@ -225,21 +267,4 @@ function incorrectDialog() {
       }
     });
   }
-// If user selects the correct answer, display screen that shows "Congratulations! You chose the 
-// correct answer!"
-
-// After three seconds have passed, display next question and answer set.
-
-// If user selects the wrong answer, display screen that shows "Incorrect, the answer was [answer]." Add 1 to incorrect answers.
-
-// After three seconds have passed, display next question and answer set.
-
-// If timer reaches zero, display screen that shows "You ran out of time, the answer was [answer]."
-
-// After three seconds have passed, display next question and answer set.
-
-// Once user answers last question and last correct/incorrect screen has been shown, display screen that
-// shows correct to incorrect ratio with option to restart the game.
-
-// If user clicks restart, game restarts from the beginning.
 
