@@ -67,10 +67,10 @@ $(document).ready(function() {
         $('.ok').on('click', function(){
             $("#q1wrapper").hide();
             $("#q2wrapper").show();
-            timeLeft=16;
+            resetTimer ();
             $("#dialog-timeup").dialog("close");
         });
-        
+
     }else { // End pseudo code
     $("input[name=question1]").click(function() {
         var questionOneString = $("input[name=question1]:checked").next().text();
@@ -81,7 +81,7 @@ $(document).ready(function() {
             $('.ok').on('click',function(){
                 $("#q1wrapper").hide();
                 $("#q2wrapper").show();
-                timeLeft=16;
+                resetTimer();
                 $("#dialog-correct").dialog("close");
             });
 
@@ -91,7 +91,7 @@ $(document).ready(function() {
             $('.ok').on('click',function(){
                 $("#q1wrapper").hide();
                 $("#q2wrapper").show();
-                timeLeft=16;
+                resetTimer();
                 $("#dialog-incorrect").dialog("close");    
             });
             $(".actualanswer").text(cephaQuestions[0].correctAnswer);          
@@ -108,7 +108,7 @@ $(document).ready(function() {
         $('.ok').on('click', function(){
             $("#q2wrapper").hide();
             $("#q3wrapper").show();
-            timeLeft=16;
+            resetTimer();
             $("#dialog-timeup").dialog("close");
         });
         
@@ -122,7 +122,7 @@ $(document).ready(function() {
             $('.ok').on('click',function(){
                 $("#q2wrapper").hide();
                 $("#q3wrapper").show();
-                timeLeft=16;
+                resetTimer();
                 $("#dialog-correct").dialog("close");
             });
 
@@ -132,7 +132,7 @@ $(document).ready(function() {
             $('.ok').on('click',function(){
                 $("#q2wrapper").hide();
                 $("#q3wrapper").show();
-                timeLeft=16;
+                resetTimer ();
                 $("#dialog-incorrect").dialog("close");    
             });
             $(".actualanswer").text(cephaQuestions[1].correctAnswer);
@@ -149,7 +149,7 @@ $(document).ready(function() {
         $("#correctnumber").text(correctQuestions);
         $("#counter").show();
         $("#reset").show();   
-        timeLeft=16;
+        resetTimer ();
         $("#dialog-timeup").dialog("close");
     });
 
@@ -164,7 +164,8 @@ $(document).ready(function() {
                 $("#dialog-correct").dialog("close");
                 $("#correctnumber").text(correctQuestions);
                 $("#counter").show();
-                $("#reset").show();                   
+                $("#reset").show(); 
+                timeLeft = 0;                  
             });
 
         }else {
@@ -174,12 +175,17 @@ $(document).ready(function() {
                 $("#dialog-incorrect").dialog("close"); 
                 $("#correctnumber").text(correctQuestions);
                 $("#counter").show();
-                $("#reset").show();   
+                $("#reset").show();
+                timeLeft = 1;   
             });
             $(".actualanswer").text(cephaQuestions[2].correctAnswer);
         }
     });
 }
+    $("#reset").click(function() {
+        reset ();
+        resetTimer();
+    });
 });
 
 
@@ -190,6 +196,7 @@ $(document).ready(function() {
 function timer (){
     countdownTimer = setInterval(function(){
         timeLeft--;
+        console.log(timeLeft);
          $("#seconds").text(timeLeft);               
         if(timeLeft <= 0)
             clearInterval(countdownTimer);
@@ -198,7 +205,6 @@ function timer (){
 
 function resetTimer (){
     timeLeft = 15;
-    timer ();
 }
 
 
@@ -210,12 +216,14 @@ function reset (){
     $("#q1a2").text(cephaQuestions[0].answers.b);
     $("#q1a3").text(cephaQuestions[0].answers.c);
     $("#q1a4").text(cephaQuestions[0].answers.d);
+    $("#q1wrapper").show();
     $("#q2wrapper").hide();
     $("#q3wrapper").hide();
     $("#counter").hide();
     $("#reset").hide();
     hideDialog();
-    correctQuestions = 0;    
+    correctQuestions = 0; 
+    timer ();   
 }
 
 // Function to hide dialog boxes
@@ -230,11 +238,11 @@ function correctDialog() {
     $( "#dialog-correct" ).dialog({
       autoOpen: false,
       show: {
-        effect: "blind",
+        effect: "fade",
         duration: 1000
       },
       hide: {
-        effect: "explode",
+        effect: "fade",
         duration: 1000
       }
     });
@@ -244,11 +252,11 @@ function incorrectDialog() {
     $("#dialog-incorrect").dialog({
       autoOpen: false,
       show: {
-        effect: "blind",
+        effect: "fade",
         duration: 1000
       },
       hide: {
-        effect: "explode",
+        effect: "fade",
         duration: 1000
       }
     });
@@ -258,11 +266,11 @@ function incorrectDialog() {
     $("#dialog-timeup").dialog({
       autoOpen: false,
       show: {
-        effect: "blind",
+        effect: "fade",
         duration: 1000
       },
       hide: {
-        effect: "explode",
+        effect: "fade",
         duration: 1000
       }
     });

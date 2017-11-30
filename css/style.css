@@ -1,0 +1,74 @@
+/* Main Styles */
+body {
+    background: #41b9e7; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(-90deg, #2fbcb4, #41b9e7); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(-90deg, #2fbcb4, #41b9e7); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(-90deg, #2fbcb4, #41b9e7); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(-90deg, #2fbcb4, #41b9e7); /* Standard syntax */
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 3px rgb(0, 13, 29);
+    font-family: 'Open Sans', sans-serif;    
+}
+
+h1 {
+    font-family: 'Scope One', serif;
+    color: white;
+    text-shadow: 1px 1px 2px rgb(0, 13, 29);    
+}
+
+h2 {
+    font-family: 'Scope One', serif;
+    font-size: 18px;    
+}
+
+li {
+    list-style: none;
+    display: inline;
+    padding-right: 20px;
+}
+
+li img {
+    width: 50px;
+}
+
+/* Container Styles */
+.container{
+    max-width: 500px;    
+    margin: auto;
+    margin-top: 25px;    
+    overflow: hidden;
+    padding: 0px 25px 25px 25px;
+    min-height: calc(100vh - 80px);        
+}
+#q1wrapper, #q2wrapper, #q3wrapper {
+    background: transparent; /* For browsers that don't support opacity */
+    background: rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+#q1a1, #q1a2, #q1a3, #q1a4, #q2a1, #q2a2, #q2a3, #q2a4, #q3a1, #q3a2, #q3a3, #q3a4 {
+    padding-left: 10px;
+}
+
+.answer {
+    text-align: left;
+    padding-left: 60px;
+}
+
+#reset {
+    background: transparent; /* For browsers that don't support opacity */
+    background: rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 0px;
+    border: none;
+}
+
+/* Dialog Styles */
+#dialog-correct p, #dialog-incorrect p, #dialog-timeup p {
+    text-shadow: none;
+}
+
+.ui-dialog-title {
+    text-shadow: none;
+}

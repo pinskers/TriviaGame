@@ -20,7 +20,7 @@
 
 <body>
     <div class="container">
-        <div class="col-md-8" id="wrapper">
+        <div class="col-md-12" id="wrapper">
             <h1>Totally Trivial Trivia!</h1>
             <p>
                 Time remaining: <span id="seconds">15</span> seconds
@@ -29,30 +29,30 @@
             <div class="col-md-12" id="q1wrapper">
                 <h2 id="question1"></h2>
                 <form>
-                    <p><input type="radio" name="question1" class="button"><span id="q1a1"></span></p>
-                    <p><input type="radio" name="question1" class="button"><span id="q1a2"></span></p>
-                    <p><input type="radio" name="question1" class="button"><span id="q1a3"></span></p>
-                    <p><input type="radio" name="question1" class="button"><span id="q1a4"></span></p>   
+                    <p class="answer"><input type="radio" name="question1" class="button"><span id="q1a1"></span></p>
+                    <p class="answer"><input type="radio" name="question1" class="button"><span id="q1a2"></span></p>
+                    <p class="answer"><input type="radio" name="question1" class="button"><span id="q1a3"></span></p>
+                    <p class="answer"><input type="radio" name="question1" class="button"><span id="q1a4"></span></p>   
                 </form>
             </div>
 
             <div class="col-md-12" id="q2wrapper">
                 <h2 id="question2"></h2>
                 <form>
-                    <p><input type="radio" name="question2" class="button"><span id="q2a1"></span></p>
-                    <p><input type="radio" name="question2" class="button"><span id="q2a2"></span></p>
-                    <p><input type="radio" name="question2" class="button"><span id="q2a3"></span></p>
-                    <p><input type="radio" name="question2" class="button"><span id="q2a4"></span></p>   
+                    <p class="answer"><input type="radio" name="question2" class="button"><span id="q2a1"></span></p>
+                    <p class="answer"><input type="radio" name="question2" class="button"><span id="q2a2"></span></p>
+                    <p class="answer"><input type="radio" name="question2" class="button"><span id="q2a3"></span></p>
+                    <p class="answer"><input type="radio" name="question2" class="button"><span id="q2a4"></span></p>   
                 </form>
             </div>
 
             <div class="col-md-12" id="q3wrapper">
                 <h2 id="question3"></h2>
                 <form>
-                    <p><input type="radio" name="question3" class="button"><span id="q3a1"></span></p>
-                    <p><input type="radio" name="question3" class="button"><span id="q3a2"></span></p>
-                    <p><input type="radio" name="question3" class="button"><span id="q3a3"></span></p>
-                    <p><input type="radio" name="question3" class="button"><span id="q3a4"></span></p>   
+                    <p class="answer"><input type="radio" name="question3" class="button"><span id="q3a1"></span></p>
+                    <p class="answer"><input type="radio" name="question3" class="button"><span id="q3a2"></span></p>
+                    <p class="answer"><input type="radio" name="question3" class="button"><span id="q3a3"></span></p>
+                    <p class="answer"><input type="radio" name="question3" class="button"><span id="q3a4"></span></p>   
                 </form>
             </div>
 
@@ -67,14 +67,14 @@
             <button class="ok">OK</button>
         </div>
 
-        <div id="dialog-timeup" title="Time's UpQ">
+        <div id="dialog-timeup" title="Time's Up!">
                 <p>Oh no! You ran out of time! The correct answer for this questions was <span class="actualanswer"></span>.</p>
                 <button class="ok">OK</button>
             </div>
             
         <!-- Counter HTML -->
         <div id="counter">
-            <p><span id="correctnumber"></span>/3</p>
+            <h2><span id="correctnumber"></span>/3</h2>
             <button id="reset">Reset</button>
         </div>
     </div>
