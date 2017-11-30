@@ -51,7 +51,7 @@ function timer (){
 // Setting up a function to reset the game
 function reset (){
     console.log(cephaQuestions[0].question);
-    $("#question").text(cephaQuestions[0].question);
+    $("#question1").text(cephaQuestions[0].question);
     $("#answer1").text(cephaQuestions[0].answers.a);
     $("#answer2").text(cephaQuestions[0].answers.b);
     $("#answer3").text(cephaQuestions[0].answers.c);
@@ -69,6 +69,12 @@ function winLose (){
 $(document).ready(function() {
     reset ();
     timer ();
+
+    $("#question").text(cephaQuestions[0].question);
+    $("#answer1").text(cephaQuestions[0].answers.a);
+    $("#answer2").text(cephaQuestions[0].answers.b);
+    $("#answer3").text(cephaQuestions[0].answers.c);
+    $("#answer4").text(cephaQuestions[0].answers.d);
 
     $(".button").click(function() {
         winLose();    
