@@ -1,5 +1,7 @@
 
-// Creating an array of objects to store our questions, answers, and correct answers.
+//  ----- VARIABLES ------
+
+// Array of objects to store our questions, answers, and correct answers.
 var cephaQuestions = [
     {
         question: "Cephalopod means what in Latin?",
@@ -31,38 +33,14 @@ var cephaQuestions = [
         },
         correctAnswer: "Mollusca"
     }
-
 ]
 
-// Variable for how much time we want in the timer per question
-var timeLeft = 5;
-
-// Variable to count our incorrect questions
+// How much time we want in the timer per question
+var timeLeft = 15;
 var correctQuestions;
 var countdownTimer;
 
-// Setting up a function for a timer
-function timer (){
-    // Making the time count down by one second
-    countdownTimer = setInterval(function(){
-        timeLeft--;
-         $("#seconds").text(timeLeft);               
-        if(timeLeft <= 0)
-            clearInterval(countdownTimer);
-        },1000);
-}
-
-
-// Setting up a function to reset the game
-function reset (){
-    console.log(cephaQuestions[0].question);
-    $("#question1").text(cephaQuestions[0].question);
-    $("#q1a1").text(cephaQuestions[0].answers.a);
-    $("#q1a2").text(cephaQuestions[0].answers.b);
-    $("#q1a3").text(cephaQuestions[0].answers.c);
-    $("#q1a4").text(cephaQuestions[0].answers.d);
-    timer ();
-}
+// ----- LOGIC ------
 
 // Upon document startup display timer, and question and corresponding answers in their
 // respective divs.
@@ -110,7 +88,38 @@ $(document).ready(function() {
         }
     });
 });
-    
+
+
+// ----- FUNCTIONS ------
+
+// Setting up a function for a timer
+function timer (){
+    countdownTimer = setInterval(function(){
+        timeLeft--;
+         $("#seconds").text(timeLeft);               
+        if(timeLeft <= 0)
+            clearInterval(countdownTimer);
+        },1000);
+}
+
+
+// Function to reset the game
+function reset (){
+    console.log(cephaQuestions[0].question);
+    $("#question1").text(cephaQuestions[0].question);
+    $("#q1a1").text(cephaQuestions[0].answers.a);
+    $("#q1a2").text(cephaQuestions[0].answers.b);
+    $("#q1a3").text(cephaQuestions[0].answers.c);
+    $("#q1a4").text(cephaQuestions[0].answers.d);
+    $("#q2wrapper").hide();
+    $("#q3wrapper").hide(); 
+    correctQuestions = 0;    
+    timer ();
+}
+
+// Function to hide divs
+function hide (){
+}
 
 // If user selects the correct answer, display screen that shows "Congratulations! You chose the 
 // correct answer!"
