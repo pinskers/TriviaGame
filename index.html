@@ -12,7 +12,11 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">  
 
   <!-- Javascript and jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  
+ <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+ 
+ <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
   <script src="js/javascript.js"></script>
   
 </head>
@@ -81,7 +85,15 @@
                     </p>
                 </div>            
             </div>
+        <!-- Modal HTML -->
+        <div id="dialog-correct" title="Hey, well done!">
+            <p id="correct-copy">You got the answer the correct!</p>
+        </div>
 
+        <div id="dialog-incorrect" title="Basic dialog">
+                <p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+              </div>
+               
     </div>
 </body>
 

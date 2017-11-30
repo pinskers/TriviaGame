@@ -41,9 +41,6 @@ var correctQuestions;
 var countdownTimer;
 
 // ----- LOGIC ------
-
-// Upon document startup display timer, and question and corresponding answers in their
-// respective divs.
 $(document).ready(function() {
     reset ();
 
@@ -67,6 +64,8 @@ $(document).ready(function() {
         if (questionOneString === cephaQuestions[0].correctAnswer){
             correctQuestions++;
             console.log("Correct!");
+            correctDialog ();
+            $( "#dialog-correct" ).dialog( "open" );            
         } 
     });
 
@@ -112,14 +111,30 @@ function reset (){
     $("#q1a3").text(cephaQuestions[0].answers.c);
     $("#q1a4").text(cephaQuestions[0].answers.d);
     $("#q2wrapper").hide();
-    $("#q3wrapper").hide(); 
+    $("#q3wrapper").hide();
+    hide();
     correctQuestions = 0;    
     timer ();
 }
 
-// Function to hide divs
+// Function to hide dialog boxes
 function hide (){
+    $("#dialog-correct").hide();
 }
+
+function correctDialog() {
+    $( "#dialog-correct" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+  }
 
 // If user selects the correct answer, display screen that shows "Congratulations! You chose the 
 // correct answer!"
