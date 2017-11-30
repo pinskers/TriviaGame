@@ -43,6 +43,7 @@ var countdownTimer;
 // ----- LOGIC ------
 $(document).ready(function() {
     reset ();
+    resetTimer ();
 
     // Putting our second question and answers set into their respective places
     $("#question2").text(cephaQuestions[1].question);
@@ -63,10 +64,27 @@ $(document).ready(function() {
         var questionOneString = $("input[name=question1]:checked").next().text();
         if (questionOneString === cephaQuestions[0].correctAnswer){
             correctQuestions++;
-            console.log("Correct!");
             correctDialog ();
-            $( "#dialog-correct" ).dialog( "open" );            
-        } 
+            $("#dialog-correct").dialog("open");
+            $('.ok').on('click',function(){
+                $("#q1wrapper").hide();
+                $("#q2wrapper").show();
+                timeLeft=16;
+                $("#dialog-correct").dialog("close");
+            });
+
+        }else {
+            incorrectDialog ();
+            $("#dialog-incorrect").dialog("open");
+            $('.ok').on('click',function(){
+                $("#q1wrapper").hide();
+                $("#q2wrapper").show();
+                timeLeft=16;
+                $("#dialog-incorrect").dialog("close");    
+            });
+            $(".actualanswer").text(cephaQuestions[0].correctAnswer);          
+
+        }
     });
 
     // Checking if user click equals a correct answer for question 2
@@ -74,7 +92,25 @@ $(document).ready(function() {
         var questionOneString = $("input[name=question2]:checked").next().text();
         if (questionOneString === cephaQuestions[1].correctAnswer){
             correctQuestions++;
-            console.log("Correct!");
+            correctDialog ();
+            $("#dialog-correct").dialog("open");
+            $('.ok').on('click',function(){
+                $("#q2wrapper").hide();
+                $("#q3wrapper").show();
+                timeLeft=16;
+                $("#dialog-correct").dialog("close");
+            });
+
+        }else {
+            incorrectDialog ();
+            $("#dialog-incorrect").dialog("open");
+            $('.ok').on('click',function(){
+                $("#q2wrapper").hide();
+                $("#q3wrapper").show();
+                timeLeft=16;
+                $("#dialog-incorrect").dialog("close");    
+            });
+            $(".actualanswer").text(cephaQuestions[1].correctAnswer);
         } 
     });
 
@@ -83,7 +119,25 @@ $(document).ready(function() {
         var questionThreeString = $("input[name=question3]:checked").next().text();
         if (questionThreeString === cephaQuestions[2].correctAnswer){
             correctQuestions++;
-            console.log("Correct!");
+            correctDialog ();
+            $("#dialog-correct").dialog("open");
+            $('.ok').on('click',function(){
+                $("#dialog-correct").dialog("close");
+                $("#correctnumber").text(correctQuestions);
+                $("#counter").show();
+                $("#reset").show();                   
+            });
+
+        }else {
+            incorrectDialog ();
+            $("#dialog-incorrect").dialog("open");
+            $('.ok').on('click',function(){
+                $("#dialog-incorrect").dialog("close"); 
+                $("#correctnumber").text(correctQuestions);
+                $("#counter").show();
+                $("#reset").show();   
+            });
+            $(".actualanswer").text(cephaQuestions[2].correctAnswer);
         }
     });
 });
@@ -101,6 +155,11 @@ function timer (){
         },1000);
 }
 
+function resetTimer (){
+    timeLeft = 15;
+    timer ();
+}
+
 
 // Function to reset the game
 function reset (){
@@ -112,14 +171,17 @@ function reset (){
     $("#q1a4").text(cephaQuestions[0].answers.d);
     $("#q2wrapper").hide();
     $("#q3wrapper").hide();
-    hide();
+    $("#counter").hide();
+    $("#reset").hide();
+    hideDialog();
     correctQuestions = 0;    
-    timer ();
 }
 
 // Function to hide dialog boxes
-function hide (){
+function hideDialog (){
     $("#dialog-correct").hide();
+    $("#dialog-incorrect").hide();
+    $("#dialog-timeup").hide();
 }
 
 function correctDialog() {
@@ -136,6 +198,33 @@ function correctDialog() {
     });
   }
 
+function incorrectDialog() {
+    $("#dialog-incorrect").dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+  }
+
+  function timeUpDialog() {
+    $("#dialog-timeup").dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+  }
 // If user selects the correct answer, display screen that shows "Congratulations! You chose the 
 // correct answer!"
 

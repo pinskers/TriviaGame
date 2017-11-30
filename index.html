@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Trivia Game</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta charset="UTF-8">
+    <title>Trivia Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
-  <!-- CSS -->
-  <!--<link rel="stylesheet" href="css/reset.css">-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Scope+One|Open+Sans" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/style.css">  
+    <!-- CSS -->
+    <!--<link rel="stylesheet" href="css/reset.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Scope+One|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">  
 
-  <!-- Javascript and jQuery -->
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  
- <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
- 
- <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
-  <script src="js/javascript.js"></script>
-  
+    <!-- Javascript and jQuery -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <script src="js/javascript.js"></script> 
 </head>
 
 <body>
@@ -85,15 +82,28 @@
                     </p>
                 </div>            
             </div>
+
         <!-- Modal HTML -->
         <div id="dialog-correct" title="Hey, well done!">
-            <p id="correct-copy">You got the answer the correct!</p>
+            <p>You got the answer the correct!</p>
+            <button class="ok">OK</button>
         </div>
 
-        <div id="dialog-incorrect" title="Basic dialog">
-                <p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-              </div>
-               
+        <div id="dialog-incorrect" title="Aw, drat!">
+            <p>Darn! The correct answer was actually <span class="actualanswer"></span>.</p>
+            <button class="ok">OK</button>
+        </div>
+
+        <div id="dialog-timeup" title="Time's UpQ">
+                <p>Oh no! You ran out of time! The correct answer for this questions was <span class="actualanswer"></span>.</p>
+                <button class="ok">OK</button>
+            </div>
+            
+        <!-- Counter HTML -->
+        <div id="counter">
+            <p><span id="correctnumber"></span>/3</p>
+            <button id="reset">Reset</button>
+        </div>
     </div>
 </body>
 
